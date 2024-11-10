@@ -35,16 +35,12 @@ export const newUser = TryCatch(async (
 }
 );
 
-export const getAllUsers = async (req:Request, res:Response, next:NextFunction) => {
-  console.log("Inside getAllUsers without TryCatch"); // Check if this appears
-  try {
-    const users = await User.find({});
-    return res.status(200).json({
-      success: true,
-      users, 
-    });
-  } catch (error) {
-    next(error);
-  }
+export const getAllUsers = (req:Request, res:Response) => {
+  console.log("Inside getAllUsers route"); // Check if this appears
+  res.status(200).json({
+    success: true,
+    message: "Route hit successfully"
+  });
 };
+
 

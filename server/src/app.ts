@@ -14,7 +14,7 @@ app.use(express.json())
 app.get("/", (req,res) => {res.send("api working")});
 
 app.use("/api/v1/user", userRoute)
-// app.use(errorMiddleware)
+app.use(errorMiddleware)
 
 app.listen(port,() => {
     console.log(`Server is running at http://localhost:${port}`);
